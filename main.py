@@ -2,8 +2,8 @@ import threading
 import wiringpi as pi
 import variableAndContrants as env
 import led_traffic_controller as traffic
-import led_7seg_controller as seg
 import led_lcd_controller as lcd
+import database as api
 import time
 
 # Setting for wPi pin mod
@@ -29,8 +29,12 @@ pi.pinMode(env.LED_PIN_DP, pi.OUTPUT)
 pi.pinMode(env.LED_PIN_D1, pi.OUTPUT)
 pi.pinMode(env.LED_PIN_D2, pi.OUTPUT)
 
+# Setup envỉoment
+api.call()
+
 # Bật chế độ chờ ghi cho LCD
 lcd.lcd_init()
+# time.sleep(1)
 
 # Bật chế độ đèn giao thông
 traffic.HandleLED()

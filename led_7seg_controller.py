@@ -27,21 +27,21 @@ def count_down(color):
     # xử lú đồng thời cả đèn xanh và đền đỏ thông qua tg của đèn xanh.
 
     if color == env.GREEN_1:
-        time_down = env.TIME_GREEN
+        time_down = env.TIME_GREEN[0]
         while time_down >= 0:
-            handle_concurrent(time_down, time_down + env.TIME_YELLOW)
+            handle_concurrent(time_down, time_down + env.TIME_YELLOW[0])
             time_down -= 1
 
     if color == env.YELLOW_1 or color == env.YELLOW_2:
-        time_down = env.TIME_YELLOW
+        time_down = env.TIME_YELLOW[0]
         while time_down >= 0:
             handle_concurrent(time_down, time_down)
             time_down -= 1
 
     if color == env.GREEN_2:
-        time_down = env.TIME_GREEN
+        time_down = env.TIME_GREEN[0]
         while time_down >= 0:
-            handle_concurrent(time_down + env.TIME_YELLOW, time_down)
+            handle_concurrent(time_down + env.TIME_YELLOW[0], time_down)
             time_down -= 1
 
 

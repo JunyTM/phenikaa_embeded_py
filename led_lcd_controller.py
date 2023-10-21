@@ -92,4 +92,9 @@ def lcd_warning_emer():
     lcd_byte(0x01, LCD_CMD)
     lcd_string("RPi-wPi        <", LCD_LINE_1)
     lcd_string("I2C Emergency  <", LCD_LINE_2)
-    # time.sleep(env.Time_EMER)
+
+def lcd_night_mod():
+    lcd_byte(0x01, LCD_CMD)
+    lcd_string("RPi-wPi        <", LCD_LINE_1)
+    lcd_string("I2C Night-mode <", LCD_LINE_2)
+

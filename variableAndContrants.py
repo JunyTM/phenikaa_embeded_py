@@ -1,10 +1,12 @@
-from enum import Enum
-
 # Thời gian của đèn
-TIME_YELLOW = 3
-TIME_GREEN = 6
-TIME_RED = 9
+TIME_YELLOW = [3]
+TIME_GREEN = [6]
+TIME_RED = [9]
+TIME_EMER = [7]  # đặt tời gian đèn khẩn cấp
 
+IS_Emer = [False]
+IS_Night = [False]
+INFO_SHOW = ['']
 # Dèn giao thông 1
 YELLOW_1 = 7
 GREEN_1 = 0
@@ -31,4 +33,3 @@ LED_7segs = [21, 22, 3, 4, 5, 24, 1]
 
 # Nút bấm
 Button = 26  # 32
-Time_EMER = 7  # đặt tời gian đèn khẩn cấp
