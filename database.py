@@ -2,7 +2,7 @@ import requests
 import variableAndContrants as env
 
 # Sử dụng ngrok để public server
-base = "https://ee23-2402-800-61c7-e573-a1e1-b186-f3fe-af49.ngrok.io"
+base = "http://192.168.1.3:12002"
 url = base + "/api/traffic"
 
 def call():

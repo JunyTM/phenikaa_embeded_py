@@ -12,12 +12,11 @@ mod_led = ['light']  # Điều kiện chọn chế độ đèn light/night
 
 
 def HandleLED():
-    theard_call_api = cpu.Thread(target=handelCalAPI, args=())
+    # theard_call_api = cpu.Thread(target=handelCalAPI, args=())
     theard_read_button = cpu.Thread(target=readButton, args=(env.IS_Emer,))
-    theard_call_api.start()
+    # theard_call_api.start()
     theard_read_button.start()
     while True:
-        
         if env.IS_Night[0]:  # Bật chế độ ban đêm
             lcd.lcd_night_mod()
             seg.off_led()
@@ -25,6 +24,7 @@ def HandleLED():
                 print(env.IS_Night[0])
                 onEmer(env.TIME_EMER[0])
         else:   # Bật chế độ giao thông bình thường
+            lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
             handelEmer(env.IS_Emer[0])
             onGreen(1)
@@ -32,7 +32,8 @@ def HandleLED():
             seg.count_down(env.GREEN_1)
             if env.IS_Night[0]:
                 continue
-
+            
+            lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
             handelEmer(env.IS_Emer[0])
             onYellow(1)
@@ -40,6 +41,7 @@ def HandleLED():
             if env.IS_Night[0]:
                 continue
 
+            lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
             handelEmer(env.IS_Emer[0])
             onRed(1)
@@ -48,6 +50,7 @@ def HandleLED():
             if env.IS_Night[0]:
                 continue
 
+            lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
             handelEmer(env.IS_Emer[0])
             onYellow(2)
@@ -109,12 +112,15 @@ def onEmer(time_emer):
 def readButton(emer_sate):
     while True:
         state = pi.digitalRead(env.Button)
-        print(state)
-
+        # print("state: ",state)
         if state == 1:
             emer_sate[0] = True
         else:
             emer_sate[0] = False
+        print("state: ",emer_sate)
+        print("called!")
+        api.call()
+        # time.sleep(1)
         time.sleep(0.5)
 
 
@@ -126,10 +132,11 @@ def handelEmer(state):
         lcd.lcd_init()
 
 
-def handelCalAPI():
-    while True:
-        api.call()
-        time.sleep(0.5)
+# def handelCalAPI():
+#     while True:
+#         print("called!")
+#         api.call()
+#         time.sleep(1)
 
 
     
