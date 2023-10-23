@@ -23,36 +23,37 @@ def HandleLED():
             while env.IS_Night[0]:
                 print(env.IS_Night[0])
                 onEmer(env.TIME_EMER[0])
+
         else:   # Bật chế độ giao thông bình thường
+            handelEmer(env.IS_Emer[0])
             lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
-            handelEmer(env.IS_Emer[0])
             onGreen(1)
             onRed(2)
             seg.count_down(env.GREEN_1)
             if env.IS_Night[0]:
                 continue
             
+            handelEmer(env.IS_Emer[0])
             lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
-            handelEmer(env.IS_Emer[0])
             onYellow(1)
             seg.count_down(env.YELLOW_1)
             if env.IS_Night[0]:
                 continue
-
+            
+            handelEmer(env.IS_Emer[0])
             lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
-            handelEmer(env.IS_Emer[0])
             onRed(1)
             onGreen(2)
             seg.count_down(env.GREEN_2)
             if env.IS_Night[0]:
                 continue
 
+            handelEmer(env.IS_Emer[0])
             lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
-            handelEmer(env.IS_Emer[0])
             onYellow(2)
             seg.count_down(env.YELLOW_2)
             if env.IS_Night[0]:
@@ -111,15 +112,15 @@ def onEmer(time_emer):
 
 def readButton(emer_sate):
     while True:
+        api.call()
         state = pi.digitalRead(env.Button)
-        # print("state: ",state)
         if state == 1:
             emer_sate[0] = True
         else:
             emer_sate[0] = False
         print("state: ",emer_sate)
-        print("called!")
-        api.call()
+        # print("process done!")
+        
         # time.sleep(1)
         time.sleep(0.5)
 

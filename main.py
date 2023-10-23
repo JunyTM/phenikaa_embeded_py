@@ -34,7 +34,7 @@ api.call()
 
 # Bật chế độ chờ ghi cho LCD
 lcd.lcd_init()
-# time.sleep(1)
 
 # Bật chế độ đèn giao thông
 traffic.HandleLED()
+
