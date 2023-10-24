@@ -40,8 +40,8 @@ def lcd_init():
     lcd_byte(0x01, LCD_CMD)  # 000001 Clear display
     time.sleep(E_DELAY)
 
-    lcd_string("RPi-wPi        <", LCD_LINE_1)
-    lcd_string("I2C Traffic LED<", LCD_LINE_2)
+    lcd_string("Traffic LCD    <", LCD_LINE_1)
+    lcd_string("Den Giao thong <", LCD_LINE_2)
 
 
 def lcd_byte(bits, mode):
@@ -85,16 +85,13 @@ def lcd_string(message, line):
 def lcd_clear():
     lcd_byte(0x01, LCD_CMD)
 
-# Bật cảnh báo
-
-
-def lcd_warning_emer():
-    lcd_byte(0x01, LCD_CMD)
-    lcd_string("RPi-wPi        <", LCD_LINE_1)
-    lcd_string("I2C Emergency  <", LCD_LINE_2)
+# def lcd_warning_emer():
+#     lcd_byte(0x01, LCD_CMD)
+#     lcd_string("Traffic LCD    <", LCD_LINE_1)
+#     lcd_string("I2C Emergency  <", LCD_LINE_2)
 
 def lcd_night_mod():
     lcd_byte(0x01, LCD_CMD)
-    lcd_string("RPi-wPi        <", LCD_LINE_1)
-    lcd_string("I2C Night-mode <", LCD_LINE_2)
+    lcd_string("Traffic LCD    <", LCD_LINE_1)
+    lcd_string("Buoi toi       <", LCD_LINE_2)
 

@@ -131,13 +131,4 @@ def handelEmer(state):
         seg.off_led()
         onEmer(env.TIME_EMER[0])
         lcd.lcd_init()
-
-
-# def handelCalAPI():
-#     while True:
-#         print("called!")
-#         api.call()
-#         time.sleep(1)
-
-
     
