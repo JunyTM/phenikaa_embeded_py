@@ -30,8 +30,7 @@ pi.pinMode(env.LED_PIN_D1, pi.OUTPUT)
 pi.pinMode(env.LED_PIN_D2, pi.OUTPUT)
 
 # Setup envỉoment
-# api.call()
-api.getData()
+api.call()
 
 # Bật chế độ chờ ghi cho LCD
 lcd.lcd_init()

@@ -85,10 +85,10 @@ def lcd_string(message, line):
 def lcd_clear():
     lcd_byte(0x01, LCD_CMD)
 
-# def lcd_warning_emer():
-#     lcd_byte(0x01, LCD_CMD)
-#     lcd_string("Traffic LCD    <", LCD_LINE_1)
-#     lcd_string("I2C Emergency  <", LCD_LINE_2)
+def lcd_warning_emer():
+    lcd_byte(0x01, LCD_CMD)
+    lcd_string("Traffic LCD    <", LCD_LINE_1)
+    lcd_string("Den Uu Tien    <", LCD_LINE_2)
 
 def lcd_night_mod():
     lcd_byte(0x01, LCD_CMD)

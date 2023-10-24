@@ -1,5 +1,5 @@
 # Thời gian của đèn
-TIME_YELLOW = [3]
+TIME_YELLOW = [4]
 TIME_GREEN = [6]
 TIME_RED = [9]
 TIME_EMER = [7]  # đặt tời gian đèn khẩn cấp

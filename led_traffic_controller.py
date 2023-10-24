@@ -6,11 +6,6 @@ import wiringpi as pi
 import time
 import database as api
 
-# Sử dụng mang đẻ chuyền tham chiếu tới biến
-# button_state = [0]
-mod_led = ['light']  # Điều kiện chọn chế độ đèn light/night
-
-
 def HandleLED():
     # theard_call_api = cpu.Thread(target=handelCalAPI, args=())
     theard_read_button = cpu.Thread(target=readButton, args=(env.IS_Emer,))
@@ -26,7 +21,6 @@ def HandleLED():
 
         else:   # Bật chế độ giao thông bình thường
             handelEmer(env.IS_Emer[0])
-            lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
             onGreen(1)
             onRed(2)
@@ -35,7 +29,6 @@ def HandleLED():
                 continue
             
             handelEmer(env.IS_Emer[0])
-            lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
             onYellow(1)
             seg.count_down(env.YELLOW_1)
@@ -43,7 +36,6 @@ def HandleLED():
                 continue
             
             handelEmer(env.IS_Emer[0])
-            lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
             onRed(1)
             onGreen(2)
@@ -52,7 +44,6 @@ def HandleLED():
                 continue
 
             handelEmer(env.IS_Emer[0])
-            lcd.lcd_string("RPi: Is reading<", lcd.LCD_LINE_1)
             lcd.lcd_string(env.INFO_SHOW[0], lcd.LCD_LINE_2)
             onYellow(2)
             seg.count_down(env.YELLOW_2)
@@ -118,7 +109,7 @@ def readButton(emer_sate):
             emer_sate[0] = True
         else:
             emer_sate[0] = False
-        print("state: ",emer_sate)
+        print("Trang thai: ",emer_sate)
         # print("process done!")
         
         # time.sleep(1)
